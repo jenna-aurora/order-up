@@ -1,0 +1,16 @@
+body {
+  background-color: goldenrod;
+}
+h1 {
+  color: saddlebrown;
+  border: 1px solid saddlebrown;
+}
+h2 {
+  color: saddlebrown;
+  border: 1px solid saddlebrown;
+}
+p {
+  color: saddlebrown;
+  border: 1px solid saddlebrown;
+  box-shadow: 1px 1px 1px saddlebrown;
+}
