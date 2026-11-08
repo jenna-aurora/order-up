@@ -6,15 +6,36 @@ const prices = [11.99, 5.99, 9.25, 3.0];
 console.log(tags);
 console.log(prices);
 
-const tagText = document.querySelector("#tags");
-tagText.textContent = "";
+const burgerPrice = 11.99;
+const friesPrice = 5.99;
+const tacoPrice = 9.25;
+const drinkPrice = 3.0;
+const taxRate = 0.08;
 
-for (let i = 0; i < tags.length; i++) {
-  tagText.textContent = tagText.textContent + tags[i] + " . ";
-}
+const orderBtn = document.querySelector("#orderBtn");
 
-let total = 0;
-for (let i = 0; i < prices.length; i++) {
-  total = total + prices[i];
+orderBtn.addEventListener("click", placeOrder);
+
+function placeOrder() {
+  console.log("Button clicked");
+
+  const burgers = Number(document.querySelector("#burger").value);
+  const fries = Number(document.querySelector("#fries").value);
+  const tacos = Number(document.querySelector("#tacos").value);
+  const drinks = Number(document.querySelector("#drink").value);
+
+  const subtotal =
+    burgers * burgerPrice +
+    fries * friesPrice +
+    tacos * tacoPrice +
+    drinks * drinkPrice;
+
+  const tax = subtotal * taxRate;
+  const total = subtotal + tax;
+
+  document.querySelector("#subtotal").textContent = "$" + subtotal.toFixed(2);
+
+  document.querySelector("#tax").textContent = "$" + tax.toFixed(2);
+
+  document.querySelector("#total").textContent = "$" + total.toFixed(2);
 }
-document.querySelector("#total").textContent = "$" + total;

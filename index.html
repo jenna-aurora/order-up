@@ -8,10 +8,49 @@
   </head>
   <body>
     <h1>Just A Craving: Order Up</h1>
-    <h2>Our Tags</h2>
-    <p id="tags"></p>
-    <h2>Order total</h2>
-    <p id="total"></p>
+
+    <div class="menu">
+      <div class="card">
+        <h2>J.A.C. Inferno Burger</h2>
+        <p>$11.99</p>
+        <label for="burger">How many?</label>
+        <input type="number" id="burger" min="0" value="0" />
+      </div>
+
+      <div class="card">
+        <h2>Loaded Bacon Fries</h2>
+        <p>$5.99</p>
+        <label for="fries">How many?</label>
+        <input type="number" id="fries" min="0" value="0" />
+      </div>
+
+      <div class="card">
+        <h2>Chicken Street Tacos</h2>
+        <p>$9.25</p>
+        <label for="tacos">How many?</label>
+        <input type="number" id="tacos" min="0" value="0" />
+      </div>
+
+      <div class="card">
+        <h2>Fresh-Squeezed Lemonade</h2>
+        <p>$3.00</p>
+        <label for="drink">How many?</label>
+        <input type="number" id="drink" min="0" value="0" />
+      </div>
+    </div>
+
+    <button id="orderBtn">Place Order</button>
+
+    <section id="summary">
+      <h2>Order Summary</h2>
+
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+
+      <p>Tax (8%): $<span id="tax">0.00</span></p>
+
+      <p>Total: $<span id="total">0.00</span></p>
+    </section>
+
     <script src="script.js"></script>
   </body>
 </html>
