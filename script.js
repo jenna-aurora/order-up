@@ -2,15 +2,20 @@ console.log("Hello, world!");
 
 const tags = ["vegan", "gluten-free", "dairy-free"];
 const prices = [11.99, 5.99, 9.25, 3.0];
+const taxRate = 0.08;
 
 console.log(tags);
 console.log(prices);
 
-const burgerPrice = 11.99;
-const friesPrice = 5.99;
-const tacoPrice = 9.25;
-const drinkPrice = 3.0;
-const taxRate = 0.08;
+const tagText = document.querySelector("#tags");
+tagText.textContent = "";
+for (let i = 0; i < tags.length; i++) {
+  tagText.textContent += tags[i];
+
+  if (i < tags.length - 1) {
+    tagText.textContent += " · ";
+  }
+}
 
 const orderBtn = document.querySelector("#orderBtn");
 
@@ -24,11 +29,13 @@ function placeOrder() {
   const tacos = Number(document.querySelector("#tacos").value);
   const drinks = Number(document.querySelector("#drink").value);
 
-  const subtotal =
-    burgers * burgerPrice +
-    fries * friesPrice +
-    tacos * tacoPrice +
-    drinks * drinkPrice;
+  const quantities = [burgers, fries, tacos, drinks];
+
+  let subtotal = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    subtotal += prices[i] * quantities[i];
+  }
 
   const tax = subtotal * taxRate;
   const total = subtotal + tax;
